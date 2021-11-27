@@ -7,7 +7,7 @@
 /config.json
 
 #enviroment variables
-config.json
+auth-server/config.json
 
 # testing
 /coverage
