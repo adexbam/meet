@@ -25,9 +25,14 @@ yarn-error.log*
 # auth Serverless
 # environment variables
 config.json
+**auth-server/config.json**
 
 # package directories
+node_modules
+**auth-server/node_modules**
 jspm_packages
+**auth-server/jspm_packages**
 
 # serverless directories
 .serverless
+**auth-server/.serverless**
