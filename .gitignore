@@ -4,11 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
-/config.json
 
-#enviroment variables
-.auth-server/config.json
-/auth-server/config.json
+# Serverless directories
+**/auth-server/config.json
+./auth-server/node_modules
+./auth-server/jspm_packages
+./auth-server/.serverless
 
 # testing
 /coverage
