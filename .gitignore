@@ -6,6 +6,9 @@
 .pnp.js
 /config.json
 
+#enviroment variables
+config.json
+
 # testing
 /coverage
 
