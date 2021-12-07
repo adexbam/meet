@@ -6,9 +6,10 @@ export default class EventList extends Component {
         const {events} = this.props;
         return (
             <ul className="EventList">
-                {events.map(event => <li>
+                {events.map(event => <li key={event.id}>
                     <Event event={event} />
-                </li>)}
+                </li>
+                )}
             </ul>
         )
     }
