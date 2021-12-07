@@ -6,6 +6,7 @@ export default class CitySearch extends Component {
 
         this.state = {
             query : '',
+            suggestions: []
         }
     }
 
@@ -22,7 +23,12 @@ export default class CitySearch extends Component {
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                 />
-                <ul className="suggestions"></ul>
+                <ul className="suggestions">
+                    {this.state.suggestions.map((suggestion) => (
+                        <li>{suggestion}</li>
+                    ))}
+                    <li key="all"><b>See all cities</b></li>
+                </ul>
             </div>
         )
     }

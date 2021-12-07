@@ -50,30 +50,30 @@ const mockData = [
         "description": "Love HTML, CSS, and JS? Want to become a cool front-end developer? \n\nReact is one of the most popular front-end frameworks. There is a huge number of job openings for React developers in most cities. \n\nJoin us in our free React training sessions and give your career a new direction. ",
         "location": "Berlin, Germany",
         "creator": {
-         "email": "fullstackwebdev@careerfoundry.com",
-         "self": true
+            "email": "fullstackwebdev@careerfoundry.com",
+            "self": true
         },
         "organizer": {
-         "email": "fullstackwebdev@careerfoundry.com",
-         "self": true
+            "email": "fullstackwebdev@careerfoundry.com",
+            "self": true
         },
         "start": {
-         "dateTime": "2020-05-20T14:00:00+02:00",
-         "timeZone": "Europe/Berlin"
+            "dateTime": "2020-05-20T14:00:00+02:00",
+            "timeZone": "Europe/Berlin"
         },
         "end": {
-         "dateTime": "2020-05-20T15:00:00+02:00",
-         "timeZone": "Europe/Berlin"
+            "dateTime": "2020-05-20T15:00:00+02:00",
+            "timeZone": "Europe/Berlin"
         },
         "recurringEventId": "3qtd6uscq4tsi6gc7nmmtpqlct",
         "originalStartTime": {
-         "dateTime": "2020-05-20T14:00:00+02:00",
-         "timeZone": "Europe/Berlin"
+            "dateTime": "2020-05-20T14:00:00+02:00",
+            "timeZone": "Europe/Berlin"
         },
         "iCalUID": "3qtd6uscq4tsi6gc7nmmtpqlct@google.com",
         "sequence": 0,
         "reminders": {
-         "useDefault": true
+            "useDefault": true
         },
         "eventType": "default"
     },
