@@ -3,3 +3,8 @@ export const extractLocations = (events) => {
     var locations = [...new Set(extractLocations)];
     return locations;
 };
+
+export const extractEvents = (events) => {
+    var extractEvents = events.map((event) => event);
+    return extractEvents
+}
