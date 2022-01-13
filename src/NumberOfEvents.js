@@ -15,7 +15,7 @@ export default class NumberOfEvents extends Component {
     render() {
         const {defNumber} = this.state;
         return (
-            <div className='event-number'>
+            <div className='numberOfEvents'>
                 <input
                     type='text'
                     className='event-number-input'

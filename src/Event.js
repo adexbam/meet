@@ -4,30 +4,28 @@ import React, { Component } from "react";
 class Event extends Component { 
     state = {
         toggle: false,
-        textButton: 'Show Details',
     }
 
     handletoggle = () => {
         this.setState({
             toggle: !this.state.toggle,
-            textButton: 'Hide Details',
         })
     }
 
     render() {
         const {event} = this.props;
-        const { toggle, textButton } = this.state;
+        const { toggle } = this.state;
         return (
-            <div className="events">
+            <div className="event">
                 <p className="summary">{event.summary}</p>
                 <button 
                     className="details-btn"
                     onClick={this.handletoggle}
                 >
-                {textButton}
+                {toggle ? 'Hide' : 'Show'}  
                 </button>
                 {toggle && (
-                    <p className={toggle ? "show-details" : "hide-details"}
+                    <p className="description"
                     >
                         {toggle ? event.description : null}
                     </p>
