@@ -6,7 +6,7 @@ describe('<NumberOfEvents.js/> component', ()=>{
     let NumberOfEventsWrapper;
     test('should check for div', () => {
         NumberOfEventsWrapper = shallow(<NumberOfEvents />);
-        expect(NumberOfEventsWrapper.find('.event-number')).toHaveLength(1);
+        expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
     });
     test('should render text input', () => {
         NumberOfEventsWrapper = shallow(<NumberOfEvents />);

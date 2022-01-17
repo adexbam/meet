@@ -11,7 +11,7 @@ describe('<Event/> component', () => {
         EventWrapper = shallow(<Event event={event}/>);
     })
     test('render events div', () => {
-        expect(EventWrapper.find('.events')).toHaveLength(1);
+        expect(EventWrapper.find('.event')).toHaveLength(1);
     });
     test("render summary of events", () => {
         expect(EventWrapper.find('.summary')).toHaveLength(1);
@@ -23,11 +23,8 @@ describe('<Event/> component', () => {
         EventWrapper.find('.details-btn').at(0).simulate('click');
         expect(EventWrapper.state('toggle')).toBe(true);
     });
-    test("User clicks button to see event details and show hide button", () => {
-        expect(EventWrapper.state('textButton')).toBe('Hide Details');
-    });
     test("Ensure event details is shown", () => {
-        expect(EventWrapper.find('.show-details')).toHaveLength(1);
+        expect(EventWrapper.find('.description')).toHaveLength(1);
     });
     test("User clicks button to hide event details", () => {
         EventWrapper.find('.details-btn').simulate('click');
