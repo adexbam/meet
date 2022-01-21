@@ -97,28 +97,20 @@ input[type="number"] {
   font-weight: 600;
 }
 
-.detail-btn {
+
+.details-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-}
-
-
-.details-btn {
-  display: inline;
   padding:0.35em 1.2em;
-  border:0.1em solid #FFFFFF;
   margin:0 0.3em 0.3em 0;
+  border:0.1em solid #000000;
   border-radius:0.12em;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:300;
-  color:#FFFFFF;
+  color:#000000;
   text-align:center;
   transition: all 0.2s;
 }
