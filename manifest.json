@@ -9,7 +9,8 @@
     },
     {
       "src": "meet_logo.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sizes": "125x116"
     },
     {
       "src": "logo512.png",
