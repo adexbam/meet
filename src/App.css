@@ -21,6 +21,7 @@ p {
   font-family: 'Lato', sans-serif;
   font-family: 'The Nautigal', cursive;
   font-size: 100px;
+  margin: 10px 0px 30px 0px;
 }
 
 .display-none {
@@ -93,7 +94,7 @@ input[type="number"] {
 
 .summary_title {
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 600;
 }
 
 .details-btn {
