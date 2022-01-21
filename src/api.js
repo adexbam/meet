@@ -47,8 +47,7 @@ const checkToken = async (accessToken) => {
         error.json();
     } 
 };
-
-
+/*
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
@@ -64,7 +63,6 @@ const getToken = async (code) => {
     return access_token;
 };
 
-/*
 const getToken = async (code) => {
     try {
         const encodeCode = encodeURIComponent(code);
@@ -72,22 +70,21 @@ const getToken = async (code) => {
             // eslint-disable-next-line no-useless-concat
             'https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
         access_token && localStorage.setItem("access_token", access_token);
-        return access_token;
+        return access_token.json();
     } catch (error) {
         error.json();
     }
 }
 */
 
-/*
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
+    // eslint-disable-next-line no-useless-concat
     const { response } = await fetch('https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode)
     const access_token = await response.json();
     access_token && localStorage.setItem("access_token", access_token);
     return access_token;
 };
-*/
 
 export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');
