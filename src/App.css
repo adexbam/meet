@@ -97,7 +97,7 @@ input[type="number"] {
   font-weight: 600;
 }
 
-.details-btn {
+.detail-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -105,6 +105,34 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+}
+
+
+.details-btn {
+  display: inline;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.details-btn:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+}
+
+@media all and (max-width:30em){
+  .details-btn{
+    display:block;
+    margin:0.4em auto;
+  }
 }
 
 .name {

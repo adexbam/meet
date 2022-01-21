@@ -48,7 +48,7 @@ const checkToken = async (accessToken) => {
     } 
 };
 
-const Token = async (code) => {
+const oldToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
       // eslint-disable-next-line no-useless-concat
