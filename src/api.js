@@ -66,16 +66,18 @@ const getToken = async (code) => {
 */
 
 const getToken = async (code) => {
+    const encodeCode = encodeURIComponent(code);
+    let access_token;
     try {
-        const encodeCode = encodeURIComponent(code);
-        const { access_token } = await fetch(
+        const { response } = await fetch(
             // eslint-disable-next-line no-useless-concat
             'https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
-        access_token && localStorage.setItem("access_token", access_token);
-        return access_token.json();
+        access_token = response.json();
     } catch (error) {
         error.json();
     }
+    access_token && localStorage.setItem("access_token", access_token);
+    return access_token
 }
 
 
