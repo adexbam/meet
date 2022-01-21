@@ -17,7 +17,9 @@ class Event extends Component {
         const { toggle } = this.state;
         return (
             <div className="event">
-                <p className="summary">{event.summary}</p>
+                <p className="summary summary_title">{event.summary}</p>
+                <p className="summary">{'@' + event.location}</p>
+                <p className="summary">{'Date and time: ' + event.originalStartTime.dateTime + ', Time-zone: ' + event.originalStartTime.timeZone}</p>
                 <button 
                     className="details-btn"
                     onClick={this.handletoggle}
@@ -25,10 +27,11 @@ class Event extends Component {
                 {toggle ? 'Hide' : 'Show'}  
                 </button>
                 {toggle && (
-                    <p className="description"
-                    >
-                        {toggle ? event.description : null}
-                    </p>
+                    <div>
+                        <p className="description">{toggle ? event.description : null}</p>
+                        <p className="summary">{'End@' + event.end.dateTime}</p>
+                    </div>
+
                 )}
             </div>
         );

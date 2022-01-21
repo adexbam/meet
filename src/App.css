@@ -17,6 +17,12 @@ p {
   margin: 5px 0;
 }
 
+.meet-logo {
+  font-family: 'Lato', sans-serif;
+  font-family: 'The Nautigal', cursive;
+  font-size: 100px;
+}
+
 .display-none {
   display: none;
 }
@@ -83,6 +89,11 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+}
+
+.summary_title {
+  font-size: 18px;
+  font-weight: 100;
 }
 
 .details-btn {
