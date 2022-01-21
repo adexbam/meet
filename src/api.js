@@ -74,7 +74,7 @@ const getToken = async (code) => {
             'https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
         access_token = response;
     } catch (error) {
-        error.json();
+        return error;
     }
     access_token && localStorage.setItem("access_token", access_token);
     return access_token
