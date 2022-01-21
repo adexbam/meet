@@ -50,15 +50,13 @@ const checkToken = async (accessToken) => {
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const { access_token } = await fetch(
-       // eslint-disable-next-line no-useless-concat
-        'https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
-        )
-        .then((res) => {
-            return res.json();
-        })
-        .catch((error) => error);
-    
+    // eslint-disable-next-line no-useless-concat
+    const { response } = await fetch('https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode)
+    const access_token = response
+    .then((res) => {
+        return res.json();
+    })
+    .catch((error) => error);
     access_token && localStorage.setItem("access_token", access_token);
     return access_token;
 };
