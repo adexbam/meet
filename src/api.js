@@ -52,8 +52,7 @@ const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     // eslint-disable-next-line no-useless-concat
     const { response } = await fetch('https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode)
-    const access_token = response
-    .then((res) => {
+    const access_token = response.then((res) => {
         return res.json();
     })
     .catch((error) => error);
