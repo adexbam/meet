@@ -50,7 +50,7 @@ const checkToken = async (accessToken) => {
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
-    const { access_token } = fetch(
+    const { access_token } = await fetch(
       // eslint-disable-next-line no-useless-concat
         'https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
         )
@@ -62,6 +62,21 @@ const getToken = async (code) => {
     access_token && localStorage.setItem("access_token", access_token);
     return access_token;
 };
+
+const noToken = async (code) => {
+    try {
+        const encodeCode = encodeURIComponent(code);
+        const response = await fetch('https://zlk2czbshb.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const { access_token } = await response.blob();
+        access_token && localStorage.setItem("access_token", access_token);
+        return access_token;
+    } catch(error) {
+        error.console();
+    }
+}
 
 export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');
@@ -78,7 +93,7 @@ export const getAccessToken = async () => {
             const { authUrl } = results.data;
             return (window.location.href = authUrl);
         }
-        return code && getToken(code);
+        return code && noToken(code);
     }
     return accessToken;
 }
