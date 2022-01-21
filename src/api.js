@@ -48,7 +48,7 @@ const checkToken = async (accessToken) => {
     } 
 };
 
-/*
+
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
@@ -63,8 +63,8 @@ const getToken = async (code) => {
     access_token && localStorage.setItem("access_token", access_token);
     return access_token;
 };
-*/
 
+/*
 const getToken = async (code) => {
     try {
         const encodeCode = encodeURIComponent(code);
@@ -77,6 +77,8 @@ const getToken = async (code) => {
         error.json();
     }
 }
+*/
+
 /*
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
