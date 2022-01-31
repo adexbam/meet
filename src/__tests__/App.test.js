@@ -60,4 +60,10 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     });
+    test('App should pass as prop, numberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsState = AppWrapper.state('numberOfEvents');
+        expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(NumberOfEventsState)
+        AppWrapper.unmount();
+    });
 });

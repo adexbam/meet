@@ -28,7 +28,9 @@ class Event extends Component {
                 </button>
                 {toggle && (
                     <div>
+                        <br/>
                         <p className="description">{toggle ? event.description : null}</p>
+                        <br/>
                         <p className="summary">{'End@' + event.end.dateTime}</p>
                     </div>
 
