@@ -12,10 +12,6 @@ describe('<NumberOfEvents.js/> component', ()=>{
         NumberOfEventsWrapper = shallow(<NumberOfEvents />);
         expect(NumberOfEventsWrapper.find('.event-number-input')).toHaveLength(1);
     })
-    test('should have default value of 32', () => {
-        const defaultNumber = NumberOfEventsWrapper.state('numberOfEvents');
-        expect(NumberOfEventsWrapper.find('.event-number-input').prop('value')).toBe(defaultNumber);
-    })
     test('should change default number when input changes', () => {
         NumberOfEventsWrapper.setState({
             numberOfEvents: 40

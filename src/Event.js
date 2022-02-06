@@ -18,8 +18,7 @@ class Event extends Component {
         return (
             <div className="event">
                 <p className="summary summary_title">{event.summary}</p>
-                <p className="summary">{'@' + event.location}</p>
-                <p className="summary">{'Date and time: ' + event.originalStartTime.dateTime + ', Time-zone: ' + event.originalStartTime.timeZone}</p>
+                <p className="">{'@' + event.location}</p>
                 <button 
                     className="details-btn"
                     onClick={this.handletoggle}
@@ -30,8 +29,6 @@ class Event extends Component {
                     <div>
                         <br/>
                         <p className="description">{toggle ? event.description : null}</p>
-                        <br/>
-                        <p className="summary">{'End@' + event.end.dateTime}</p>
                     </div>
 
                 )}
