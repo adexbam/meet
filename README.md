@@ -1,5 +1,5 @@
 # lets-meet-up
-A serverless progressive web application built using React and following the TDD approach. 
+A serverless progressive web application built using React and following the TDD and BDD approach. 
 
 six key features app needs to possess:
 
