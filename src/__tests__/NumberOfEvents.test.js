@@ -19,7 +19,6 @@ describe('<NumberOfEvents.js/> component', ()=>{
         const numberObject = { target: { value: 40 }};
         NumberOfEventsWrapper.find('.event-number-input').simulate('change', numberObject);
         expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(40);
-        
     })
     
 })
