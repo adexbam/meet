@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { ErrorAlert } from './Alert';
 
 export default class NumberOfEvents extends Component {
     
     render() {
-        const {numberOfEvents} = this.props;
+        const {errorText, numberOfEvents} = this.props;
         return (
             <div className='numberOfEvents'>
+                <ErrorAlert text={errorText}/>
                 <label>Number of Events: </label>
                 <input
                     type='text'

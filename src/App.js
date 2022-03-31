@@ -14,6 +14,7 @@ class App extends Component {
       events: [],
       locations: [],
       numberOfEvents: 32,
+      errorText: '',
     }
 }
 
@@ -30,9 +31,17 @@ class App extends Component {
 
   updateInputChange = (event) => {
     const value = event.target.value;
-    this.setState({
+    if (value > 32) {
+      this.setState({
+        errorText:'Please enter number from 1 to 32',
+      })
+    } else {
+      this.setState({
         numberOfEvents: value,
-    })
+        errorText: ''
+      })
+    }
+
   }
 
   componentDidMount() {
@@ -49,13 +58,13 @@ class App extends Component {
   }
 
   render() {
-    const {events, locations, numberOfEvents } = this.state
+    const {events, locations, numberOfEvents, errorText } = this.state
     return (
       <div className="App">
         <h1 className="meet-logo">LetsMeetUp</h1>
         <h4>Choose your nearest city</h4>
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
-        < NumberOfEvents numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
+        < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
         < EventList events={events.slice(0, numberOfEvents)} />
       </div>
     );
