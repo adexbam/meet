@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
 import './nprogress.css';
+import Menu from "./Menu";
 import EventList from './EventList.js';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
@@ -33,7 +34,7 @@ class App extends Component {
     const value = event.target.value;
     if (value > 32) {
       this.setState({
-        errorText:'Please enter number from 1 to 32',
+        errorText:'Select number from 1 to 32',
       })
     } else {
       this.setState({
@@ -61,8 +62,7 @@ class App extends Component {
     const {events, locations, numberOfEvents, errorText } = this.state
     return (
       <div className="App">
-        <h1 className="meet-logo">LetsMeetUp</h1>
-        <h4>Choose your nearest city</h4>
+        <Menu />
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
         < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
         < EventList events={events.slice(0, numberOfEvents)} />

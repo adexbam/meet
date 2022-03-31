@@ -17,11 +17,25 @@ p {
   margin: 5px 0;
 }
 
+.error-text {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.error-alert {
+  width: 90%;
+  font-size: 14px;
+  text-align: center;
+  margin: auto;
+  height: 1.5em;
+}
+
 .meet-logo {
   font-family: 'Lato', sans-serif;
   font-family: 'The Nautigal', cursive;
   font-size: 100px;
-  margin: 10px 0px 30px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .display-none {
@@ -62,7 +76,7 @@ input[type="number"] {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  top: 124px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }

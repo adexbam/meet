@@ -7,7 +7,9 @@ export default class NumberOfEvents extends Component {
         const {errorText, numberOfEvents} = this.props;
         return (
             <div className='numberOfEvents'>
+                <div className='error-alert'>
                 <ErrorAlert text={errorText}/>
+                </div>
                 <label>Number of Events: </label>
                 <input
                     type='text'
