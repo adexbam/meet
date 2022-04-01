@@ -16,6 +16,9 @@ defineFeature(feature, test => {
     let EventWrapper;
     beforeAll(()=> {
         AppWrapper = mount(<App />)
+        AppWrapper.setState({
+            showWelcomeScreen: false,
+        });
         EventWrapper = shallow(<Event event={event}/>);
     })
     test('When an event element is collapsed by default', ({ given, when, then }) => {

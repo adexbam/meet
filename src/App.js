@@ -5,7 +5,8 @@ import Menu from "./Menu";
 import EventList from './EventList.js';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import WelcomeScreen from "./WelcomeScreen";
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends Component {
       locations: [],
       numberOfEvents: 32,
       errorText: '',
+      showWelcomeScreen: undefined,
     }
 }
 
@@ -45,13 +47,25 @@ class App extends Component {
 
   }
 
-  componentDidMount() {
+
+
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
-    });
+    const accessToken = localStorage.getItem('access_token');
+    let isTokenValid;
+    if (!accessToken && !navigator.onLine){
+      isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    }
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+    }
   }
 
   componentWillUnmount(){
@@ -59,13 +73,15 @@ class App extends Component {
   }
 
   render() {
-    const {events, locations, numberOfEvents, errorText } = this.state
+    const {events, locations, numberOfEvents, errorText, showWelcomeScreen } = this.state
+    if (showWelcomeScreen === undefined) return <div className="App" />
     return (
-      <div className="App">
-        <Menu />
+      <div className="App" id="target">
+        < Menu />
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
         < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
         < EventList events={events.slice(0, numberOfEvents)} />
+        < WelcomeScreen showWelcomeScreen={showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }

@@ -10,7 +10,10 @@ defineFeature(feature, test => {
     let AppWrapper;
     let NumberOfEventsWrapper;
     beforeAll(()=> {
-        AppWrapper = mount(<App />)
+        AppWrapper = mount(<App />);
+        AppWrapper.setState({
+            showWelcomeScreen: false,
+        });
         NumberOfEventsWrapper = shallow(<NumberOfEvents />);
     })
 
