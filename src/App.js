@@ -17,9 +17,10 @@ class App extends Component {
       locations: [],
       numberOfEvents: 32,
       errorText: '',
+      warningText: '',
       showWelcomeScreen: undefined,
     }
-}
+  }
 
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
@@ -47,14 +48,15 @@ class App extends Component {
 
   }
 
-
-
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
     let isTokenValid;
     if (!accessToken && !navigator.onLine){
       isTokenValid = (await checkToken(accessToken)).error ? false : true;
+      this.setState({
+        warningText: 'You are offline, displayed list has been loaded from the cache.'
+      })
     }
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
@@ -73,14 +75,14 @@ class App extends Component {
   }
 
   render() {
-    const {events, locations, numberOfEvents, errorText, showWelcomeScreen } = this.state
+    const {events, locations, numberOfEvents, errorText, showWelcomeScreen, warningText } = this.state
     if (showWelcomeScreen === undefined) return <div className="App" />
     return (
       <div className="App" id="target">
         < Menu />
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
         < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
-        < EventList events={events.slice(0, numberOfEvents)} />
+        < EventList events={events.slice(0, numberOfEvents) } warningText={warningText} />
         < WelcomeScreen showWelcomeScreen={showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
