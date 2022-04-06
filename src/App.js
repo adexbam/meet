@@ -17,7 +17,7 @@ class App extends Component {
       locations: [],
       numberOfEvents: 32,
       errorText: '',
-      warningText: '',
+      warningText: 'You are offline, displayed list has been loaded from the cache.',
       showWelcomeScreen: undefined,
     }
   }
@@ -54,9 +54,6 @@ class App extends Component {
     let isTokenValid;
     if (!accessToken && !navigator.onLine){
       isTokenValid = (await checkToken(accessToken)).error ? false : true;
-      this.setState({
-        warningText: 'You are offline, displayed list has been loaded from the cache.'
-      })
     }
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
