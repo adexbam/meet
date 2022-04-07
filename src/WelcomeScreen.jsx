@@ -5,7 +5,8 @@ function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
         (
             <div className="WelcomeScreen">
-                <h1>Welcome to the Meet app</h1>
+                <h1 className="meet-logo">LetsMeetUp</h1>
+                <h5>Welcome to the  Meet app</h5>
                 <h4>
                 Log in to see upcoming events around the world for
                 full-stack
@@ -16,9 +17,8 @@ function WelcomeScreen(props) {
                         <div className="google-icon-wrapper">
                             <img
                             className="google-icon"
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Log
-                            o.svg"
-                            alt="Google sign-in"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                            alt="Google-sign-in"
                             />
                         </div>
                         <button onClick={() => { props.getAccessToken() }}
