@@ -6,6 +6,7 @@ import EventList from './EventList.js';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from "./WelcomeScreen";
+import EventGenre from "./EventGenre";
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -94,7 +95,7 @@ class App extends Component {
         < Menu />
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
         < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
-        <h4>Events in each city</h4>
+        < EventGenre events={events} />
         <ResponsiveContainer height={400} >
           <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
             <CartesianGrid />
