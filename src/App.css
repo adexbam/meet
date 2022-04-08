@@ -17,6 +17,11 @@ p {
   margin: 5px 0;
 }
 
+.description {
+  padding: 20px;
+  background-color: #b0f216;
+}
+
 .error-text {
   padding: 0;
   margin-top: 0;
@@ -29,6 +34,16 @@ p {
   text-align: center;
   margin: auto;
   height: 1.5em;
+}
+
+.event {
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  background-color: #bcdcdb;
 }
 
 .meet-logo {
@@ -97,14 +112,7 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-}
+
 
 .summary_title {
   font-size: 18px;

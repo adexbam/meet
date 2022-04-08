@@ -18,7 +18,8 @@ class Event extends Component {
         return (
             <div className="event">
                 <p className="summary summary_title">{event.summary}</p>
-                <p className="">{'@' + event.location}</p>
+                <p className="location_p">{'@' + event.location}</p>
+                <p className="created_p">Event created: {event.created}</p>
                 <button 
                     className="details-btn"
                     onClick={this.handletoggle}
@@ -29,6 +30,9 @@ class Event extends Component {
                     <div>
                         <br/>
                         <p className="description">{toggle ? event.description : null}</p>
+                        <p></p>
+                        <p className="status">Event status: {toggle ? event.status : null}</p>
+                        <p className="id">Event id: {toggle ? event.id : null}</p>
                     </div>
 
                 )}

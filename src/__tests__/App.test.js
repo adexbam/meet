@@ -4,7 +4,6 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
-import WelcomeScreen from '../WelcomeScreen';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
 
@@ -25,9 +24,6 @@ describe('<App /> component', () => {
     test('render NumberOfEvents', () => {
         expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
     });
-    test('render welcome screen', () => {
-        expect(AppWrapper.find(WelcomeScreen)).toHaveLength(1);
-    })
 });
 
 describe('<App /> integration', () => {
@@ -48,7 +44,6 @@ describe('<App /> integration', () => {
         });
         const AppshowWelcomeScreenState = AppWrapper.state('showWelcomeScreen');
         expect(AppshowWelcomeScreenState).not.toEqual(undefined);
-        expect(AppWrapper.find(WelcomeScreen).props().showWelcomeScreen).toEqual(AppshowWelcomeScreenState);
         AppWrapper.unmount();
     });
     test('App passes "locations" state as a prop to CitySearch', () => {

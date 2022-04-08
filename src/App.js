@@ -5,12 +5,8 @@ import Menu from "./Menu";
 import EventList from './EventList.js';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import WelcomeScreen from "./WelcomeScreen";
-import EventGenre from "./EventGenre";
-import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
-import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
-} from 'recharts';
+import { getEvents, extractLocations  } from './api';
+
 
 class App extends Component {
   constructor() {
@@ -22,7 +18,6 @@ class App extends Component {
       numberOfEvents: 32,
       errorText: '',
       warningText: 'You are offline, displayed list has been loaded from the cache.',
-      showWelcomeScreen: undefined,
     }
   }
 
@@ -64,23 +59,11 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    let isTokenValid;
-    if (accessToken && !navigator.onLine){
-      isTokenValid = true;
-    } else {
-      isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    }
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
-        }
-      });
-    }
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+    });
   }
 
   componentWillUnmount(){
@@ -88,30 +71,13 @@ class App extends Component {
   }
 
   render() {
-    const {events, locations, numberOfEvents, errorText, showWelcomeScreen, warningText } = this.state
-    if (showWelcomeScreen === undefined) return <div className="App" />
+    const {events, locations, numberOfEvents, errorText, warningText } = this.state
     return (
       <div className="App" id="target">
         < Menu />
         < CitySearch locations={locations} updateEvents={this.updateEvents} />
         < NumberOfEvents errorText={errorText} numberOfEvents={numberOfEvents} updateInputChange={this.updateInputChange} />
-        < EventGenre events={events} />
-        <ResponsiveContainer height={400} >
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" />
-            <YAxis
-              allowDecimals={false}
-              type="number"
-              dataKey="number"
-              name="number of events"
-            />
-            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-            <Scatter data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-        </ResponsiveContainer>
         < EventList events={events.slice(0, numberOfEvents) } warningText={warningText} />
-        < WelcomeScreen showWelcomeScreen={showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
