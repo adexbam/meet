@@ -9,3 +9,4 @@ describe('<App /> component', () => {
         expect(AppWrapper.find(EventList)).toHaveLength(1);
     });
 })
+
