@@ -27,8 +27,11 @@ describe('<App /> component', () => {
 });
 
 describe('<App /> integration', () => {
+    let AppWrapper
+    beforeAll(() => {
+        AppWrapper = mount(<App />);
+    })
     test('App passes "events" state as a prop to EventList', () => {
-        const AppWrapper = mount(<App />);
         AppWrapper.setState({
             showWelcomeScreen: false,
         });
